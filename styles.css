@@ -19,14 +19,14 @@ body {
   background-attachment: fixed;
 }
 
-.header-container img {
+#header-container img {
   width: 15rem;
   height: 13rem;
   object-fit: cover;
   transition: 0.15s ease-in-out;
 }
 
-.header-container img:hover {
+#header-container img:hover {
   transform: perspective(225px) translateZ(5px);
   transition: 0.15s ease-in-out;
 }
@@ -63,7 +63,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
-.content-container {
+#content-container {
   width: 70%;
   background-color: rgb(224, 222, 222);
 }
@@ -90,7 +90,7 @@ body {
     width: 70%;
   }
 
-  .header-container {
+  #header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
