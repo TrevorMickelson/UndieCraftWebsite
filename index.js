@@ -24,7 +24,6 @@ const rules = new Map([
 ]);
 
 function displayRules() {
-  console.log('test');
   const cardContainer = document.getElementById('cards-container');
   let counter = 0;
 

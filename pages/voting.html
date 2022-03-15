@@ -1,16 +1,66 @@
 <body>
   <div id="voting-container">
-    <a href="#">
-      <img src="/assets/TrappedChest.webp" alt="Minecraft Chest" />
-    </a>
-    <a href="#">
-      <img src="/assets/TrappedChest.webp" alt="Minecraft Chest" />
-    </a>
-    <a href="#">
-      <img src="/assets/TrappedChest.webp" alt="Minecraft Chest" />
-    </a>
-    <a href="#">
-      <img src="/assets/TrappedChest.webp" alt="Minecraft Chest" />
-    </a>
+    <h1>Vote for our server</h1>
+    <p>
+      You must be on the server if you wish to receive your rewards!. Voting
+      helps rank our server on server list websites! So thank you so much for
+      voting today! Enjoy your rewards! :D
+    </p>
+    <div id="voting-sites-container">
+      <div class="vote">
+        <a href="#">
+          <img
+            src="/assets/TrappedChest.webp"
+            alt="Minecraft Chest"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Click to vote"
+          />
+        </a>
+        <h2>Site #1</h2>
+      </div>
+      <div class="vote">
+        <a href="#">
+          <img
+            src="/assets/TrappedChest.webp"
+            alt="Minecraft Chest"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Click to vote"
+          />
+        </a>
+        <h2>Site #2</h2>
+      </div>
+      <div class="vote">
+        <a href="#">
+          <img
+            src="/assets/TrappedChest.webp"
+            alt="Minecraft Chest"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Click to vote"
+          />
+        </a>
+        <h2>Site #3</h2>
+      </div>
+      <div class="vote">
+        <a href="#">
+          <img
+            src="/assets/TrappedChest.webp"
+            alt="Minecraft Chest"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Click to vote"
+          />
+        </a>
+        <h2>Site #4</h2>
+      </div>
+    </div>
   </div>
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
 </body>
