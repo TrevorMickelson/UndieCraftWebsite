@@ -1,11 +1,3 @@
-/**
- * Registering tooltips
- */
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-
 function copyFunction() {
     var copyText = document.getElementById("myInput");
   
@@ -16,3 +8,56 @@ function copyFunction() {
      /* Copy the text inside the text field */
     navigator.clipboard.writeText(copyText.value);
 }
+
+/**
+ * --------- Rules ---------
+ */
+const rules = new Map([
+  ["No swearing", "Swearing of any kind is not allowed, either from chat, books, signs or map art."],
+  ["No griefing", "This is not a faction server so griefing of any kind is strictly not allowed."],
+  ["No bug abuse", "Bugs or glitches that give you an unfair advantage are strictly not allowed. This does not include going to the nether roof."],
+  ["No advertising", "Similar to no swearing, advertising of any kind is not allowed, either from chat, books, signs, or map art. This only includes advertising servers or large groups."],
+  ["No cheating", "Only mods that don't give you an unfair advantage are allowed. Examples of well-known allowed mods: Optifine, Sodium, Lithium, etc."],
+  ["No NSFW", "Any NSFW (Not safe for work) is strictly not allowed and will be removed immediately."],
+  ["No begging", "This includes store ranks, staff ranks, and even in-game loot"],
+  ["No selling items for real-world money", "To comply with Minecraft's EULA, selling any items for real-world money is strictly not allowed"]
+]);
+
+function displayRules() {
+  const cardContainer = document.getElementById('cards-container');
+  let counter = 0;
+
+  for (const entry of rules.entries()) {
+    const ruleElement = createRuleTemplate();
+    cardContainer.appendChild(ruleElement);
+
+    const title = document.getElementsByClassName("card-title")[counter];
+    const text = document.getElementsByClassName("card-text")[counter];
+
+    title.innerText = entry[0];
+    text.innerText = entry[1];
+
+    counter++;
+  }
+}
+
+function createRuleTemplate() {
+  const cardContainer = createElement('div', 'card');
+  const cardBodyContainer = createElement('div', 'card-body');
+  const cardTitle = createElement('h4', 'card-title');
+  const cardParagraph = createElement('p', 'card-text');
+
+  cardContainer.appendChild(cardBodyContainer);
+  cardBodyContainer.appendChild(cardTitle);
+  cardBodyContainer.appendChild(cardParagraph);
+
+  return cardContainer;
+}
+
+function createElement(type, className) {
+  const newElement = document.createElement(type);
+  newElement.classList.add(className);
+  return newElement;
+}
+
+displayRules();
