@@ -1,3 +1,13 @@
+/*
+* ----- Global settings -----
+*/
+:root {
+  --theme-color: rgb(116, 204, 255);
+  --theme-shadow: 0 6px 10px rgba(116, 204, 255, 0.08),
+    0 0 6px rgba(116, 204, 255, 0.05);
+  --dark-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -6,6 +16,17 @@
 html,
 body {
   width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: white;
+  max-width: 40rem;
 }
 
 body {
@@ -19,31 +40,40 @@ body {
   background-attachment: fixed;
 }
 
+.hover {
+  transition: 0.15s ease-in-out;
+}
+
+.hover:hover {
+  transform: perspective(225px) translateZ(5px);
+}
+
+/*
+* ----- Header -----
+*/
 #header-container img {
   width: 15rem;
   height: 13rem;
   object-fit: cover;
-  transition: 0.15s ease-in-out;
-}
-
-#header-container img:hover {
-  transform: perspective(225px) translateZ(5px);
 }
 
 #header-container button {
-  background-color: rgb(116, 204, 255);
-  color: rgb(0, 0, 0);
+  background-color: var(--theme-color);
+  color: black;
 }
 
 #header-container input,
 #header-container button {
-  border: 1px solid rgb(116, 204, 255);
+  border: 1px solid var(--theme-color);
 }
 
 .play-text-container {
   text-align: center;
 }
 
+/*
+* ----- Nav bar -----
+*/
 .navbar {
   margin-top: 1.5rem;
   width: 70%;
@@ -59,8 +89,7 @@ body {
   padding: 0.25rem;
   font-size: 2rem;
   text-align: center;
-  box-shadow: 0 6px 10px rgba(116, 204, 255, 0.08),
-    0 0 6px rgba(116, 204, 255, 0.05);
+  box-shadow: var(--theme-shadow);
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
     0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
@@ -70,43 +99,105 @@ body {
 .nav-item:hover {
   background-color: #4646463a;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--dark-shadow);
 }
 
+.dropdown-item:hover {
+  background-color: #4646463a !important;
+  box-shadow: var(--dark-shadow);
+}
+
+/*
+* ----- Content container -----
+*/
 #content-container {
   width: 70%;
   background-color: rgb(39, 38, 38);
-  box-shadow: 0 6px 10px rgba(116, 204, 255, 0.08),
-    0 0 6px rgba(116, 204, 255, 0.05);
+  box-shadow: var(--theme-shadow);
 }
 
 #rules-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 #cards-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin: auto;
   gap: 0.75rem;
 }
 
+/*
+* ----- Home -----
+*/
+#home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+}
+
+#home-container img {
+  width: 75%;
+  border-radius: 5px;
+  box-shadow: var(--dark-shadow);
+}
+
+/*
+* ----- Discord -----
+*/
+#discord-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+#discord-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 20rem;
+}
+
+#discord-container img {
+  width: 15rem;
+}
+
+/*
+* ----- Maps -----
+*/
+#maps-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/*
+* ----- Rules -----
+*/
 .card {
-  color: white;
+  border: none !important;
 }
 
 .card-body {
-  border: 1px solid rgb(0, 0, 0);
+  box-shadow: var(--dark-shadow);
   background-color: rgb(44, 44, 44);
 }
 
+/*
+* ----- Voting -----
+*/
 #voting-container h1,
 #voting-container p {
-  text-align: center;
   max-width: 40rem;
+  text-align: center;
   margin: auto;
-  color: white;
 }
 
 #voting-sites-container {
@@ -115,23 +206,21 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  color: white;
+  margin-top: 2.5rem;
 }
 
 #voting-sites-container img {
-  width: 10rem;
+  width: 12rem;
   height: 10rem;
-  transition: 0.1s ease-in-out;
-}
-
-#voting-sites-container img:hover {
-  transform: perspective(225px) translateZ(10px);
 }
 
 .vote {
   text-align: center;
 }
 
+/*
+* ----- Full screen -----
+*/
 @media (min-width: 90rem) {
   .navbar {
     margin-top: 0rem;
@@ -149,18 +238,40 @@ body {
     width: 70%;
   }
 
-  #cards-container {
+  #discord-container {
     flex-direction: row;
-    flex-wrap: wrap;
+    gap: 10rem;
+  }
+
+  #cards-container {
+    align-items: center;
   }
 
   .card {
-    width: 30%;
+    width: 60rem;
   }
 
   #voting-sites-container {
     height: 35vh;
     flex-direction: row;
     gap: 5rem;
+  }
+
+  #voting-sites-container .vote {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*
+* ----- Mid screen -----
+*/
+@media (min-width: 50rem) and (max-width: 90rem) {
+  #voting-sites-container .vote {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
   }
 }
