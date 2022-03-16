@@ -31,13 +31,37 @@
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Player count-->
+    <script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+
+    <script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+    <script>
+      MinecraftAPI.getServerStatus(
+        "hypixel.net",
+        {
+          port: 25565, // optional, only if you need a custom port
+        },
+        function (err, status) {
+          if (err) {
+            return (document.querySelector(".server-status").innerHTML =
+              "Error loading status");
+          }
+
+          // you can change these to your own message!
+          document.querySelector(".player-count").innerHTML = status.players.now 
+        }
+      );
+    </script>
   </head>
   <body>
     <!-- Header -->
     <div id="header-container">
       <img src="/assets/server-logo.png" alt="" />
       <div class="play-text-container">
-        <h1 class="h2 text-light">Play Now</h1>
+        <h1 class="h2 text-light">
+          Play Now</span>
+        </h1>
         <div class="input-group input-group-sm mb-3">
           <input
             id="myInput"
@@ -56,6 +80,7 @@
             Copy
           </button>
         </div>
+        <h5>Join <span class="player-count"></span> online players!</h5>
       </div>
     </div>
 
