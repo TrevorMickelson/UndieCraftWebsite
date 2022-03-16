@@ -30,6 +30,16 @@ body {
   transform: perspective(225px) translateZ(5px);
 }
 
+#header-container button {
+  background-color: rgb(116, 204, 255);
+  color: rgb(0, 0, 0);
+}
+
+#header-container input,
+#header-container button {
+  border: 1px solid rgb(116, 204, 255);
+}
+
 .play-text-container {
   text-align: center;
 }
@@ -49,7 +59,8 @@ body {
   padding: 0.25rem;
   font-size: 2rem;
   text-align: center;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 10px rgba(116, 204, 255, 0.08),
+    0 0 6px rgba(116, 204, 255, 0.05);
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
     0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
@@ -64,7 +75,9 @@ body {
 
 #content-container {
   width: 70%;
-  background-color: rgb(224, 222, 222);
+  background-color: rgb(39, 38, 38);
+  box-shadow: 0 6px 10px rgba(116, 204, 255, 0.08),
+    0 0 6px rgba(116, 204, 255, 0.05);
 }
 
 #rules-header {
@@ -80,7 +93,12 @@ body {
 }
 
 .card {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  color: white;
+}
+
+.card-body {
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(44, 44, 44);
 }
 
 #voting-container h1,
@@ -88,6 +106,7 @@ body {
   text-align: center;
   max-width: 40rem;
   margin: auto;
+  color: white;
 }
 
 #voting-sites-container {
@@ -96,6 +115,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  color: white;
 }
 
 #voting-sites-container img {
@@ -112,10 +132,14 @@ body {
   text-align: center;
 }
 
-@media (min-width: 75rem) {
+@media (min-width: 90rem) {
   .navbar {
     margin-top: 0rem;
     width: 70%;
+  }
+
+  .nav-item {
+    width: 10rem;
   }
 
   #header-container {

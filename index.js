@@ -34,7 +34,7 @@ function displayRules() {
     const title = document.getElementsByClassName("card-title")[counter];
     const text = document.getElementsByClassName("card-text")[counter];
 
-    title.innerText = entry[0];
+    title.innerText = (counter + 1) + ".) " + entry[0];
     text.innerText = entry[1];
 
     counter++;
